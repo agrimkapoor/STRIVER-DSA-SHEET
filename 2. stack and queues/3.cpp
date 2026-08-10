@@ -3,26 +3,25 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution {
-public:
-    vector<int> calculateSpan(vector<int>& price) {
-        int n = price.size();
-        vector<int> span(n);
-        stack<int> st;   // stores indices
-
-        for (int i = 0; i < n; i++) {
-            while (!st.empty() && price[st.top()] <= price[i]) {
-                st.pop();
-            }
-
-            if (st.empty())
-                span[i] = i + 1;
-            else
-                span[i] = i - st.top();
-
-            st.push(i);
+int main() {
+    vector<int> prices = {100, 80, 60, 70, 60, 75, 85};
+    int n = prices.size();
+    
+    vector<int> pg(n); // pg[i] = index of previous greater element
+    stack<int> st;
+    
+    for (int i = 0; i < n; i++) {
+        while (!st.empty() && prices[st.top()] <= prices[i]) {
+            st.pop();
         }
-
-        return span;
+        pg[i] = st.empty() ? -1 : st.top();
+        st.push(i);
     }
-}; 
+    
+    vector<int> span(n);
+    for (int i = 0; i < n; i++) {
+        span[i] = i - pg[i];
+    }
+
+    return 0;
+}
