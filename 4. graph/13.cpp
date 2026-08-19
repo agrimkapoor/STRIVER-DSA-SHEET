@@ -1,4 +1,4 @@
-//bellman ford algo
+//bellman ford algo : it works for directed graph as for undirected graph with -ve edge will become a -ve edge cycle
 #include <bits/stdc++.h>
 using namespace std;
 vector<int> bellmanFord(
