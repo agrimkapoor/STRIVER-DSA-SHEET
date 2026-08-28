@@ -3,7 +3,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void bfs(int src,vector<vector<int>>&adj,vector<bool>&vis){
+void bfs(int src,vector<vector<int>>&adj){
+    vector<bool>vis(n,false);
     queue<int>q;
     q.push(src);
     vis[src] = true;
