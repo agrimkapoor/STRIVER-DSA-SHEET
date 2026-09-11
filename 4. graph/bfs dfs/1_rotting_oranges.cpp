@@ -3,6 +3,9 @@
 class Solution {
 public:
     //MULTISOURCE BFS :  isme level wise traversal karna hai 
+    //ham ek graph banate where each cell of the grid would be a node and edge will be to its 4 directional neigh nodes
+    // ispe bfs lagate
+    // par ham graph nhi bana rhe and generating neighbors on the fly (no need to make graph in grid waale ques)
     int orangesRotting(vector<vector<int>>& grid) {
         int m = grid.size();
         int n = grid[0].size();
