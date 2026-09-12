@@ -4,13 +4,16 @@
 // so if negative edge in unweighted graph then there is negative edge cycle
 // djisktra was greedy (har step pe min dist)
 // bellman is dp 
+// time comp = O(V*E) so N3 in worst case
 
 #include <bits/stdc++.h>
 using namespace std;
 
 vector<int> f(vector<vector<int>>&edges,int n,int src){
   vector<int>dis(n,INT_MAX);
-  dis[src]=0;
+  
+  dis[src]=0;// initialisation 
+  
   for(int i=0;i< n-1;i++){
      for(auto p : edges){
          int u = p[0];
@@ -22,6 +25,16 @@ vector<int> f(vector<vector<int>>&edges,int n,int src){
          }
      }
   }
+
+  for(auto p : edges){
+         int u = p[0];
+         int v = p[1];
+         int wt = p[2];
+
+         if(dis[u] != INT_MAX and dis[v] > dis[u] + wt ){
+            return {};
+         }
+     }
   return dis;
 }
 
