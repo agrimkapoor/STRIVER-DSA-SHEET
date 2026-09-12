@@ -1,5 +1,6 @@
 // djikstra algo
 // ab vis nhi kyuki now first way to reach a node may not be the 
+// time comp : O( (V+E)LOGV)
 
 #include <bits/stdc++.h>
 using namespace std;
